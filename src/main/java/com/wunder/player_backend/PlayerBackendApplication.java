@@ -14,7 +14,7 @@ public class PlayerBackendApplication {
 
 	@RestController
 	class HelloController {
-		@GetMapping
+		@GetMapping("/")
 		public String hello() {
 			return "Hello World";
 		}
