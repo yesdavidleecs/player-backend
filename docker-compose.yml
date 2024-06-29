@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  player-backend:
+    image: player:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ""
+      SPRING_DATASOURCE_USERNAME: davidlee
+      SPRING_DATASOURCE_PASSWORD: jangwonl33
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - player-db
+
+  player-db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: player_db
+      POSTGRES_USER: davidlee
+      POSTGRES_PASSWORD: jangwonl33
